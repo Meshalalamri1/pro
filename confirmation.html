@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: white;
+            width: 60%;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            color: #3366FF;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .success-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .info-text {
+            color: #555;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .dashboard-link {
+            display: block;
+            margin-top: 20px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dashboard-link:hover {
+            color: #3366FF;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="title">AI-POWERED TOURISM PURCHASING SYSTEM</h2>
+
+        <!-- Progress Bar -->
+        <div class="progress">
+            <div class="step">✔</div>
+            <div class="step">✔</div>
+            <div class="step">✔</div>
+        </div>
+
+        <h3 class="success-message">Yay! Payment Completed</h3>
+        
+        <!-- Illustration -->
+        <img src="success-icon.png" alt="Success Illustration" width="200">
+
+        <p class="info-text">
+            Please check your email & phone message.<br>
+            We have sent all the information.
+        </p>
+
+        <a href="dashboard.html" class="dashboard-link">Go to Dashboard</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Tourism Purchasing System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkmark {
+            width: 24px;
+            height: 24px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 14px;
+            color: #666;
+        }
+
+        select, .date-picker, .create-button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .create-button {
+            background: #1a73e8;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="checkmark">✓</div>
+            <div class="title">Itinerary Information</div>
+        </div>
+
+        <h2>Please fill up the blank fields below</h2>
+
+        <select id="country" onchange="updateCities()">
+            <option value="" disabled selected>Country</option>
+            <option value="SA">Saudi Arabia</option>
+            <option value="AE">United Arab Emirates</option>
+            <option value="QA">Qatar</option>
+            <option value="BH">Bahrain</option>
+            <option value="KW">Kuwait</option>
+            <option value="OM">Oman</option>
+            <option value="JO">Jordan</option>
+            <option value="EG">Egypt</option>
+            <option value="LB">Lebanon</option>
+            <option value="SY">Syria</option>
+            <option value="IQ">Iraq</option>
+            <option value="YE">Yemen</option>
+            <option value="SD">Sudan</option>
+            <option value="DZ">Algeria</option>
+            <option value="MA">Morocco</option>
+            <option value="TN">Tunisia</option>
+            <option value="LY">Libya</option>
+            <option value="MR">Mauritania</option>
+            <option value="PS">Palestine</option>
+        </select>
+
+        <select id="city" disabled>
+            <option value="" disabled selected>City</option>
+        </select>
+
+        <select id="activity">
+            <option value="" disabled selected>What type of activities do you prefer?</option>
+            <option value="Cultural">Cultural activities</option>
+            <option value="Sports">Sports activities</option>
+            <option value="Natural">Natural activities</option>
+        </select>
+
+        <select id="attractions">
+            <option value="" disabled selected>Are there specific tourist attractions that you would like to visit?</option>
+            <option value="Historical">Historical monuments</option>
+            <option value="Natural">Natural landmarks</option>
+            <option value="Architectural">Architectural attractions</option>
+            <option value="Cultural">Cultural landmarks</option>
+            <option value="Modern">Modern landmarks and luxury</option>
+        </select>
+
+        <select id="travelStyle">
+            <option value="" disabled selected>Do you prefer to travel comfortably or adventurously?</option>
+            <option value="Comfortable">Comfortable travel</option>
+            <option value="Adventurous">Adventurous travel</option>
+        </select>
+
+        <h2>Pick Start Date</h2>
+        <input type="text" id="startDate" class="date-picker" placeholder="Select start date" readonly>
+        
+        <h2>Pick End Date</h2>
+        <input type="text" id="endDate" class="date-picker" placeholder="Select end date" readonly>
+        
+        <h2>Duration</h2>
+        <p id="duration">Select dates to see duration</p>
+
+        <button class="create-button" onclick="submitItinerary()">Create Now</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        const cities = {
+            'SA': ['Riyadh', 'Jeddah', 'Makkah', 'Madinah', 'Dammam', 'Khobar', 'Abha', 'Taif'],
+                'AE': ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Fujairah', 'Ras Al Khaimah'],
+                'QA': ['Doha', 'Al Wakrah', 'Al Khor', 'Umm Salal', 'Al Rayyan'],
+                'BH': ['Manama', 'Riffa', 'Muharraq', 'Hamad Town'],
+                'KW': ['Kuwait City', 'Jahra', 'Salmiya', 'Hawally'],
+                'OM': ['Muscat', 'Salalah', 'Sohar', 'Nizwa'],
+                'JO': ['Amman', 'Zarqa', 'Irbid', 'Aqaba'],
+                'EG': ['Cairo', 'Alexandria', 'Giza', 'Sharm El Sheikh', 'Luxor'],
+                'LB': ['Beirut', 'Tripoli', 'Sidon', 'Tyre'],
+                'SY': ['Damascus', 'Aleppo', 'Homs', 'Hama'],
+                'IQ': ['Baghdad', 'Basra', 'Erbil', 'Mosul'],
+                'YE': ['Sanaa', 'Aden', 'Taiz', 'Hodeidah'],
+                'SD': ['Khartoum', 'Omdurman', 'Port Sudan'],
+                'DZ': ['Algiers', 'Oran', 'Constantine', 'Annaba'],
+                'MA': ['Rabat', 'Casablanca', 'Marrakech', 'Tangier'],
+                'TN': ['Tunis', 'Sfax', 'Sousse', 'Bizerte'],
+                'LY': ['Tripoli', 'Benghazi', 'Misrata'],
+                'MR': ['Nouakchott', 'Nouadhibou'],
+                'PS': ['Jerusalem', 'Gaza', 'Ramallah']
+        };
+
+        function updateCities() {
+            const countrySelect = document.getElementById('country');
+            const citySelect = document.getElementById('city');
+            citySelect.innerHTML = '<option value="" disabled selected>City</option>';
+            citySelect.disabled = true;
+            
+            if (countrySelect.value in cities) {
+                citySelect.disabled = false;
+                cities[countrySelect.value].forEach(city => {
+                    let option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        flatpickr("#startDate", {
+            dateFormat: "d M Y",
+            minDate: "today",
+            onChange: function(selectedDates) {
+                const startDate = selectedDates[0];
+                flatpickr("#endDate", {
+                    dateFormat: "d M Y",
+                    minDate: startDate,
+                    onChange: function(endDates) {
+                        const endDate = endDates[0];
+                        const duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+                        document.getElementById('duration').textContent = duration + " days";
+                    }
+                });
+            }
+        });
+
+</script>        
+        <script>
+    function submitItinerary() {
+        const itineraryData = {
+            country: document.getElementById('country').value,
+            city: document.getElementById('city').value,
+            startDate: document.getElementById('startDate').value,
+            endDate: document.getElementById('endDate').value
+        };
+        localStorage.setItem('itinerary', JSON.stringify(itineraryData));
+        window.location.href = "Page-2.html";
+    }
+</script>
+        
+        
+    </script>
+</body>
+</html>

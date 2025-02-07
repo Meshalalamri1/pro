@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container */
+        .container {
+            background: white;
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title */
+        .title {
+            color: #3366FF;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Progress Bar */
+        .progress {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            background: #ddd;
+            font-weight: bold;
+        }
+
+        .completed {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .active {
+            background: #bbb;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        /* Resort Image */
+        .resort img {
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        .resort-name {
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        .location {
+            color: gray;
+            font-size: 14px;
+        }
+
+        /* Details */
+        .details {
+            text-align: left;
+            width: 50%;
+        }
+
+        /* Stay Section */
+        .stay {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stay button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .stay button:hover {
+            background: #45a049;
+        }
+
+        /* Date Picker */
+        .date input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Price Text */
+        .price-text {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .price-text strong {
+            color: #3366FF;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .book-now {
+            background: #3366FF;
+            color: white;
+        }
+
+        .cancel {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="title">AI-POWERED TOURISM PURCHASING SYSTEM</h2>
+        
+        <!-- Progress Bar -->
+        <div class="progress">
+            <div class="step completed">✔</div>
+            <div class="step active">2</div>
+            <div class="step">3</div>
+        </div>
+
+        <h3 class="heading">Booking Information</h3>
+        <p class="sub-heading">Please fill up the blank fields below</p>
+
+        <div class="booking-section">
+            <!-- Resort Image -->
+            <div class="resort">
+                <img src="Red Sea Resort.jpeg" alt="St. Regis Red Sea Resort">
+                <p class="resort-name">The St. Regis Red Sea Resort</p>
+                <p class="location">Ummahat Island 1, KSA</p>
+            </div>
+
+            <!-- Booking Details -->
+            <div class="details">
+                <div class="stay">
+                    <p>How long will you stay?</p>
+                    <button id="decrease">-</button>
+                    <span id="stay-duration">2</span> Days
+                    <button id="increase">+</button>
+                </div>
+
+                <div class="date">
+                    <p>Pick a Start Date</p>
+                    <input type="date" id="start-date">
+                </div>
+
+                <p class="price-text">You will pay <strong id="total-price">$400</strong> SAR per <span id="day-text">2 Days</span></p>
+
+                <button class="btn book-now">Book Now</button>
+                <button class="btn cancel">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Selecting elements from the DOM
+        const decreaseBtn = document.getElementById("decrease");
+        const increaseBtn = document.getElementById("increase");
+        const stayDuration = document.getElementById("stay-duration");
+        const totalPrice = document.getElementById("total-price");
+        const dayText = document.getElementById("day-text");
+        const startDateInput = document.getElementById("start-date");
+    
+        let days = 2; // Default stay duration
+        let pricePerDay = 200; // Price per day
+    
+        // Function to update the total price display
+        function updatePrice() {
+            totalPrice.innerText = `$${days * pricePerDay}`;
+            dayText.innerText = `${days} ${days > 1 ? "Days" : "Day"}`;
+        }
+    
+        // Increase the stay duration
+        increaseBtn.addEventListener("click", () => {
+            if (days < 30) { // Maximum stay of 30 days
+                days++;
+                stayDuration.innerText = days;
+                updatePrice();
+            }
+        });
+    
+        // Decrease the stay duration
+        decreaseBtn.addEventListener("click", () => {
+            if (days > 1) { // Minimum stay of 1 day
+                days--;
+                stayDuration.innerText = days;
+                updatePrice();
+            }
+        });
+    
+        // Save booking data and redirect to the payment page
+        document.querySelector(".book-now").addEventListener("click", function () {
+            const startDate = startDateInput.value;
+            if (!startDate) {
+                alert("Please select a start date!");
+                return;
+            }
+    
+            // Save booking details in localStorage
+            localStorage.setItem("stayDays", days);
+            localStorage.setItem("totalPrice", days * pricePerDay);
+            localStorage.setItem("startDate", startDate);
+            localStorage.setItem("resortName", "The St. Regis Red Sea Resort");
+            localStorage.setItem("resortLocation", "Ummahat Island 1, KSA");
+    
+            // Redirect to the payment page
+            window.location.href = "payment.html";
+        });
+    
+        // Initialize the price display
+        updatePrice();
+    </script>
+    
+
+</body>
+</html>
