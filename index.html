@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Powered Tourism Purchasing System</title>
@@ -79,12 +77,14 @@
         .btn-primary {
             background-color: #1D4ED8;
             color: white;
-            padding: 12px 20px;
+            padding: 30px 30px;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 16px;
             margin-top: 10px;
+            justify-content: space-between;
+
         }
 
         .hero-image {
@@ -110,8 +110,8 @@
             margin: 20px auto;
             border-radius: 10px;
             max-width: 800px;
+            
         }
-
         .search-box button {
             background-color: #1D4ED8;
             color: white;
@@ -120,13 +120,11 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
         /* زر اختيار عدد الأشخاص */
         .dropdown {
             position: relative;
             display: inline-block;
         }
-
         .dropdown-content {
             display: none;
             position: absolute;
@@ -136,7 +134,6 @@
             border-radius: 5px;
             z-index: 1;
         }
-
         .dropdown-content button {
             width: 100%;
             padding: 10px;
@@ -148,49 +145,41 @@
             font-size: 16px;
             font-weight: bold;
         }
-
         .dropdown-content button:hover {
             background-color: #E0E7FF;
         }
-
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
         /* قسم الفنادق الأكثر اختيارًا */
         .hotels-section {
             max-width: 1100px;
             margin: 50px auto;
             padding: 20px;
-        }
-
+     }
         .hotels-section h2 {
             font-size: 24px;
             color: #1D2B53;
             font-weight: bold;
         }
-
         .hotels-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 20px;
         }
-
         .hotel-card {
             position: relative;
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
         }
-
         .hotel-card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             display: block;
         }
-
         .hotel-info {
             position: absolute;
             bottom: 0;
@@ -202,13 +191,11 @@
             font-size: 16px;
             font-weight: bold;
         }
-
         .hotel-info p {
             margin: 0;
             font-size: 14px;
             font-weight: normal;
         }
-
         .price-tag {
             position: absolute;
             top: 10px;
@@ -220,52 +207,44 @@
             font-size: 14px;
             font-weight: bold;
         }
-
         @media (max-width: 900px) {
             .hotels-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
         @media (max-width: 600px) {
             .hotels-grid {
                 grid-template-columns: 1fr;
             }
         }
-
         .Events-section {
             max-width: 1100px;
             margin: 50px auto;
             padding: 20px;
         }
-
         .Events-section h2 {
             font-size: 24px;
             color: #1D2B53;
             font-weight: bold;
         }
-
         .Events-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 20px;
         }
-
         .Events-card {
             position: relative;
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
         }
-
         .Events-card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             display: block;
         }
-
         .Events-info {
             position: absolute;
             bottom: 0;
@@ -277,14 +256,12 @@
             font-size: 16px;
             font-weight: bold;
         }
-
         .Events-info p {
             margin: 0;
             font-size: 14px;
             font-weight: normal;
         }
-
-        .price-tag {
+       .price-tag {
             position: absolute;
             top: 10px;
             left: 10px;
@@ -295,19 +272,216 @@
             font-size: 14px;
             font-weight: bold;
         }
-
         @media (max-width: 900px) {
             .Events-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
         @media (max-width: 600px) {
             .Events-grid {
                 grid-template-columns: 1fr;
             }
-        }    
-    </style>
+        }  
+        
+        text-white {
+            
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.bg-purple-700 {
+    transform: scale(1.1); /* Increase size by 10% */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3); /* Add deeper shadow */
+    --tw-bg-opacity: 1;
+    background-color: rgb(108 43 217 / var(--tw-bg-opacity));
+}
+.rounded-full {
+    border-radius: 9999px;
+}
+.justify-center {
+    justify-content: center;
+}
+.items-center {
+    align-items: center;
+}
+.w-64 {
+    width: 16rem;
+}
+.h-12 {
+    height: 3rem;
+}
+.flex {
+    display: flex
+;
+}
+.my-6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+/* Style for location button */
+a.my-6.w-64.h-12 {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    font-size: 15px; /* Make text a bit bigger */
+    padding: 5px 5px; /* Increase padding */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Enlarge button on hover */
+a.my-6.w-64.h-12:hover {
+    transform: scale(1); /* Increase size by 25% */
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.5); /* Add stronger shadow */
+    font-size: 20px; /* Make text bigger on hover */
+    padding: 14px 35px; /* Increase padding slightly */
+}
+
+
+
+/* Hover effect for hotel and event images */
+.hotel-card img, .Events-card img {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hotel-card:hover img, .Events-card:hover img {
+    transform: scale(1.05); /* Slightly enlarge */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+/* General hover effect for hotel and event cards */
+.hotel-card, .Events-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hotel-card:hover, .Events-card:hover {
+    transform: scale(1.1); /* Increase size by 10% */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3); /* Add deeper shadow */
+}
+
+/* Style for Create button */
+.btn-primary {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    font-size: 16px; /* Keep text small */
+    padding: 15px 30px; /* Nice button size */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Enlarge Create button on hover, but keep text the same */
+.btn-primary:hover {
+    transform: scale(1.3); /* Increase button size by 30% */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4); /* Add stronger shadow */
+    font-size: 16px; /* Keep text the same size */
+    padding: 17px 34px; /* Slightly adjust padding for balance */
+}
+/* Search Box Hover Effect */
+.search-box {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Make search box bigger on hover */
+.search-box:hover {
+    transform: scale(1.05); /* Increase size by 5% */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Add soft shadow */
+}
+
+/* Buttons inside Search Box */
+.search-box button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px; /* Keep text small */
+    padding: 5px 15px; /* Adjust button size */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Make buttons bigger on hover but keep text small */
+.search-box button:hover {
+    transform: scale(1.2); /* Increase button size by 20% */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4); /* Add soft shadow */
+    font-size: 14px; /* Keep text small */
+}
+
+
+/* Make navigation links slightly bigger on hover */
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px; /* Default size */
+    transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    padding: 10px 15px;
+}
+
+nav ul li a:hover {
+    transform: scale(1.3); /* Increase size by 30% */
+    font-size: 20px; /* Bigger text */
+}
+
+/* Make Login button slightly bigger on hover */
+.login-btn {
+    background-color: #1D4ED8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px; /* Default size */
+    transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+.login-btn:hover {
+    transform: scale(1.3); /* Increase size by 30% */
+    font-size: 20px; /* Bigger text */
+    padding: 12px 24px; /* Adjust padding slightly */
+}
+/* Style for the hero section text */
+.hero h2 {
+    font-size: 36px; /* Make it bigger */
+    color: #1D2B53;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+}
+
+.hero p {
+    color: #444; /* Darker text for better readability */
+    font-size: 18px; /* Slightly bigger */
+    line-height: 1.6; /* Improve spacing */
+    font-weight: 500; /* Make it a bit bolder */
+    max-width: 600px; /* Limit width for better focus */
+}
+/* Style for the Search Box text */
+.search-box p {
+    font-size: 20px; /* Make it bigger */
+    font-weight: bold; /* Make it stand out */
+    color: #1D2B53; /* Dark blue for a modern look */
+    text-transform: uppercase; /* Optional: Make it all caps */
+    letter-spacing: 1px; /* Add slight spacing for better readability */
+}
+
+/* Style for the buttons inside the Search Box */
+.search-box button {
+    font-size: 16px; /* Bigger font */
+    font-weight: bold; /* Make it more readable */
+    padding: 5px 5px; /* Improve button size */
+    border-radius: 8px; /* Rounder edges for a modern look */
+}
+
+/* Search Box Hover Effect */
+.search-box:hover {
+    transform: scale(1.05); /* Slightly increase size when hovered */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Add soft shadow */
+}
+
+
+
+  </style>
 </head>
 <body>
 
@@ -325,24 +499,26 @@
             </ul>
         </nav>
         <button class="login-btn" onclick="redirectToLogin()">Login</button>
-
     </header>
 
     <!-- قسم الإنشاء -->
     <section class="hero">
         <div class="hero-text">
             <h2>Create your itinerary</h2>
-            <p>Enter the area you will travel to and we will create your itinerary for you</p>
-            <button class="btn-primary" onclick="redirectTo()">Create</button>
+            <p>Asir Region is a beautiful mountainous area in southwest Saudi Arabia. It is known for its cool weather, green landscapes, and rich culture. The capital city, Abha, is a popular tourist spot with stunning views and historical sites.
+
+                Asir is famous for its traditional houses, colorful decorations, and local markets. It also has Asir National Park, perfect for hiking and camping. The people of Asir enjoy traditional music, dance (like Al-Khatwa), and delicious food such as Haneeth and Mandi.</p>
+                <button class="btn-primary" onclick="redirectTo()">Create</button>
         </div>
-        <div class="hero-image">Your Image Here</div>
+        <div class="hero-image"><img src="intervewo.png"></div>
     </section>
 
     <!-- صندوق البحث -->
     <div class="search-box">
+        <p>Search Your Room</p>
         <button>Check Available</button>
         <div class="dropdown">
-            <button id="person-btn">Person 2 ▼</button>
+            <button id="person-btn">Person 5 ▼</button>
             <div class="dropdown-content">
                 <button onclick="updatePersons(1)">1</button>
                 <button onclick="updatePersons(2)">2</button>
@@ -358,93 +534,233 @@
     <section class="hotels-section">
         <h2>Most Picked Hotels</h2>
         <div class="hotels-grid">
+            <form>
             <div class="hotel-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,1" alt="Hotel 1">
-                <span class="price-tag">$250 per night</span>
-                <div class="hotel-info">Luxury Grand Hotel<p>Paris, France</p></div>
+                <img src="firsthotel.png.png" alt="Hotel 1">
+                <span class="price-tag"> 250 SR per night</span>
+                <div class="hotel-info">فندق سيتادينز أبها<p>ابها , السعوديه </p></div>
             </div>
+            <a href="https://www.google.com/maps/place/%D8%B3%D9%8A%D8%AA%D8%A7%D8%AF%D9%8A%D9%86%D8%B2+%D8%A7%D8%A8%D9%87%D8%A7%E2%80%AD/@18.2408552,42.6071496,17z/data=!3m1!4b1!4m9!3m8!1s0x15fcab9c12a4a367:0xc7ef4cb72090ef70!5m2!4m1!1i2!8m2!3d18.2408552!4d42.6071496!16s%2Fg%2F11h0zhqskf?entry=ttu&g_ep=EgoyMDI1MDIwNS4wIKXMDSoASAFQAw%3D%3D"
+             target="_blank" 
+             class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" 
+             data-uw-rm-brl="PR" 
+             data-uw-original-href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu" 
+            aria-label="Location - open in a new tab" 
+            data-uw-rm-ext-link="" 
+            uw-rm-external-link-id="https://www.google.com/maps/place/terra+asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2fg%2f11v_8llzds?entry=ttu$location">
+                <p>Location</p>
+            </a>
+
+        </form>
+
+        <form>
             <div class="hotel-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,2" alt="Hotel 2">
-                <span class="price-tag">$180 per night</span>
-                <div class="hotel-info">Cozy Retreat Hotel<p>Rome, Italy</p></div>
+                <img src="sechotel.png.png" alt="Hotel 2">
+                <span class="price-tag">300 SR per night</span>
+                <div class="hotel-info">فندق سروات بارك<p>ابها , السعوديه </p></div>
             </div>
+            <a href="https://www.google.com/maps?q=%D9%81%D9%86%D8%AF%D9%82+%D8%B3%D8%B1%D9%88%D8%A7%D8%AA+%D8%A8%D8%A7%D8%B1%D9%83+%D8%A7%D8%A8%D9%87%D8%A7%D8%8C+%D8%B7%D8%B1%D9%8A%D9%82+%D8%A7%D9%84%D9%85%D9%84%D9%83+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2%D8%8C+%D8%A7%D9%84%D8%B4%D9%81%D8%A7%D8%A1%D8%8C+%D8%A3%D8%A8%D9%87%D8%A7+62521&ftid=0x15e35344397737eb:0xe8146d14cf4d3d36&entry=gps&lucs=,94242553,94224825,94227247,94227248,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISEjI1LjA1LjMuNzIwMTgwNTk0MBgAINeCAypjLDk0MjQyNTUzLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0LDk0MjA4NDU4LDk0MjA4NDQ3QgJTQQ%3D%3D&g_st=it"
+             target="_blank" 
+             class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center"
+             data-uw-rm-brl="PR" 
+             data-uw-original-href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu" 
+             aria-label="Location - open in a new tab" 
+             data-uw-rm-ext-link="" 
+             uw-rm-external-link-id="https://www.google.com/maps/place/terra+asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2fg%2f11v_8llzds?entry=ttu$location">
+                <p>Location</p>
+            </a>
+        </form>
+        <form>
             <div class="hotel-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,3" alt="Hotel 3">
-                <span class="price-tag">$220 per night</span>
-                <div class="hotel-info">Seaside Resort<p>Malibu, USA</p></div>
+                <img src="thirdhotail.png" alt="Hotel 3">
+                <span class="price-tag">449 SR per night</span>
+                <div class="hotel-info">فندق إيفا إن شركة ميسان الفندقية<p>ابها , السعوديه </p></div>
             </div>
+            <a href="https://www.google.com/maps?q=6F6W+F9X+%D9%81%D9%86%D8%AF%D9%82+%D8%A7%D9%8A%D9%81%D8%A7+%D8%A7%D9%86%D8%8C+7251%D8%8C+%D8%A7%D9%84%D8%B4%D9%81%D8%A7%D8%A1%D8%8C+2875+%D8%A7%D9%84%D9%85%D9%84%D9%83+%D8%B3%D8%B9%D9%88%D8%AF%D8%8C+%D8%A7%D9%84%D8%B4%D9%81%D8%A7%D8%A1%D8%8C+%D8%A3%D8%A8%D9%87%D8%A7+62521+7251%D8%8C%D8%8C+%D8%A3%D8%A8%D9%87%D8%A7+62521&ftid=0x15e35330dd12ece5:0xc184a316154ecaba&entry=gps&lucs=,94242553,94224825,94227247,94227248,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISEjI1LjA1LjMuNzIwMTgwNTk0MBgAINeCAypjLDk0MjQyNTUzLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0LDk0MjA4NDU4LDk0MjA4NDQ3QgJTQQ%3D%3D&g_st=it" 
+            target="_blank" 
+            class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center"
+             data-uw-rm-brl="PR" 
+             data-uw-original-href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu"
+              aria-label="Location - open in a new tab" 
+              data-uw-rm-ext-link="" 
+              uw-rm-external-link-id="https://www.google.com/maps/place/terra+asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2fg%2f11v_8llzds?entry=ttu$location">
+                <p>Location</p>
+            </a>
+        </form>
+        <form>
             <div class="hotel-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,4" alt="Hotel 4">
-                <span class="price-tag">$300 per night</span>
-                <div class="hotel-info">Mountain View Hotel<p>Switzerland</p></div>
+                <img src="fourhotel.png" alt="Hotel 4">
+                <span class="price-tag">449 SR per night</span>
+                <div class="hotel-info">فندق قصر أبها<p>ابها , السعوديه </p></div>
             </div>
+            <a href="https://www.google.com/maps?q=%D9%81%D9%86%D8%AF%D9%82+%D9%82%D8%B5%D8%B1+%D8%A3%D8%A8%D9%87%D8%A7%D8%8C+%D8%A3%D8%A8%D9%87%D8%A7+%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9%D8%8C+6497+-+%D8%AD%D9%8A+-+3731%D8%8C+%D8%A3%D8%A8%D9%87%D8%A7+62512&ftid=0x15e35489c228da75:0x6cd29249af5523de&entry=gps&lucs=,94242553,94224825,94227247,94227248,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISEjI1LjA1LjMuNzIwMTgwNTk0MBgAINeCAypjLDk0MjQyNTUzLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0LDk0MjA4NDU4LDk0MjA4NDQ3QgJTQQ%3D%3D&g_st=it" 
+            target="_blank"
+             class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" 
+             data-uw-rm-brl="PR" 
+             data-uw-original-href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu" 
+             aria-label="Location - open in a new tab"
+              data-uw-rm-ext-link="" 
+              uw-rm-external-link-id="https://www.google.com/maps/place/terra+asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2fg%2f11v_8llzds?entry=ttu$location">
+                <p>Location</p>
+            </a>
+        </form>
+        <form>
             <div class="hotel-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,5" alt="Hotel 5">
-                <span class="price-tag">$210 per night</span>
-                <div class="hotel-info">Sunset Beach Hotel<p>Hawaii, USA</p></div>
+                <img src="fivehotel.png.png" alt="Hotel 5">
+                <span class="price-tag">449 SR per night</span>
+                <div class="hotel-info">Ewaa Express Hotel<p>ابها , السعوديه </p></div>
             </div>
+            <a href="https://www.google.com/maps?q=Ewaa+express+hotel+Abha+%7C+%D9%81%D9%86%D8%AF%D9%82+%D8%A7%D9%8A%D9%88%D8%A7+%D8%A7%D9%83%D8%B3%D8%A8%D8%B1%D9%8A%D8%B3+%D8%A7%D8%A8%D9%87%D8%A7%D8%8C+6453%D8%8C+2874+%D8%B7%D8%B1%D9%8A%D9%82+%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A9%D8%8C+%D8%A7%D9%84%D8%AE%D8%A7%D9%84%D8%AF%D9%8A%D8%A9%D8%8C+%D8%A3%D8%A8%D9%87%D8%A7+62541&ftid=0x15e355002d84701b:0x8ba92ac478b99800&entry=gps&lucs=,94242553,94224825,94227247,94227248,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISEjI1LjA1LjMuNzIwMTgwNTk0MBgAINeCAypjLDk0MjQyNTUzLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0LDk0MjA4NDU4LDk0MjA4NDQ3QgJTQQ%3D%3D&g_st=it" 
+            target="_blank" 
+            class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" 
+            data-uw-rm-brl="PR" 
+            data-uw-original-href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu"
+             aria-label="Location - open in a new tab" 
+             data-uw-rm-ext-link="" 
+             uw-rm-external-link-id="https://www.google.com/maps/place/terra+asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2fg%2f11v_8llzds?entry=ttu$location">
+                <p>Location</p>
+            </a>
+        </form>
+        <form>
             <div class="hotel-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,6" alt="Hotel 6">
-                <span class="price-tag">$190 per night</span>
-                <div class="hotel-info">Modern City Hotel<p>Dubai, UAE</p></div>
-            </div>
+                <img src="sixhotel.png.png" alt="Hotel 6">
+                <span class="price-tag">589 SR per night</span>
+                <div class="hotel-info">Bayat Hotel<p>خميس مشيط , السعوديه</p></div>
+                 </div>
+                <a href="https://www.google.com/maps?q=%D9%81%D9%86%D8%AF%D9%82+%D8%A8%D9%8A%D8%A7%D8%AA,+King+Faysal+Rd%D8%8C+%D8%A7%D9%84%D8%B3%D8%AF%D8%8C+%D8%AE%D9%85%D9%8A%D8%B3+%D9%85%D8%B4%D9%8A%D8%B7+62431&ftid=0x15fb59ec857978bb:0xf31a83e69238b734&entry=gps&lucs=,94242553,94224825,94227247,94227248,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISEjI1LjA1LjMuNzIwMTgwNTk0MBgAINeCAypjLDk0MjQyNTUzLDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjAzMDE5LDQ3MDg0MzA0LDk0MjA4NDU4LDk0MjA4NDQ3QgJTQQ%3D%3D&g_st=it" 
+                target="_blank" 
+                class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" 
+                data-uw-rm-brl="PR" 
+                data-uw-original-href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu" 
+                aria-label="Location - open in a new tab" 
+                data-uw-rm-ext-link="" 
+                uw-rm-external-link-id="https://www.google.com/maps/place/terra+asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2fg%2f11v_8llzds?entry=ttu$location">
+                     <p>Location</p>
+                 </a>
+        </form>
         </div>
     </section>
 
     <section class="Events-section">
         <h2>Most Picked Events</h2>
         <div class="Events-grid">
+           
+           <form >
             <div class="Events-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,1" alt="Events 1">
-                <span class="price-tag">$250 per night</span>
-                <div class="Events-info">Luxury Grand Hotel<p>Paris, France</p></div>
+                <img src="firstevent.png" alt="Events 1">
+                <span class="price-tag">Free</span>
+                <div class="Events-info">Terra Aseer : Escape To The Village Of Jo<p>ابها , السعوديه</p></div>
             </div>
+            <a href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu" target="_blank" class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" data-uw-rm-brl="PR" data-uw-original-href="https://www.google.com/maps/place/Terra+Asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2Fg%2F11v_8llzds?entry=ttu" aria-label="Location - open in a new tab" data-uw-rm-ext-link="" uw-rm-external-link-id="https://www.google.com/maps/place/terra+asir/@18.3327185,42.3598961,17z/data=!3m1!4b1!4m6!3m5!1s0x15e4a76803c8984f:0x6c583e6cae2ac470!8m2!3d18.3327185!4d42.3598961!16s%2fg%2f11v_8llzds?entry=ttu$location">
+                <p>Location</p>
+            </a>
+        </form>
+        <form action="">
             <div class="Events-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,2" alt="Events 2">
-                <span class="price-tag">$180 per night</span>
-                <div class="Events-info">Cozy Retreat Hotel<p>Rome, Italy</p></div>
+                <img src="sececent.png" alt="Events 2">
+                <span class="price-tag">50 SR per tiket</span>
+                <div class="Events-info">مدماك<p>ابها , السعوديه</p></div>
             </div>
+            <a href="https://maps.app.goo.gl/FBmCij14ap8yYBdw9?g_st=iw" target="_blank" class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" data-uw-rm-brl="PR" data-uw-original-href="https://maps.app.goo.gl/FBmCij14ap8yYBdw9?g_st=iw" aria-label="Location - open in a new tab" data-uw-rm-ext-link="" uw-rm-external-link-id="https://maps.app.goo.gl/fbmcij14ap8yybdw9?g_st=iw$location">
+                <p>Location</p>
+            </a>
+                
+        </form>
+
+        <form>
             <div class="Events-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,3" alt="Events 3">
-                <span class="price-tag">$220 per night</span>
-                <div class="Events-info">Seaside Resort<p>Malibu, USA</p></div>
+                <img src="thirdevent.png" alt="Events 3">
+                <span class="price-tag">free</span>
+                <div class="Events-info">سكاي فالبج<p>ابها , السعوديه</p></div>
             </div>
+            <a href="https://www.google.com/maps/place/%D8%B3%D9%83%D8%A7%D9%8A+%D9%81%D9%8A%D9%84%D8%AC+%D8%B3%D9%85%D8%A7+%D8%A3%D8%A8%D9%87%D8%A7+Sky+village%E2%80%AD/@18.2568084,42.4911438,17z/data=!3m1!4b1!4m6!3m5!1s0x15e35500492adedf:0xb297879c4ec03e27!8m2!3d18.2568084!4d42.4911438!16s%2Fg%2F11v_8948_q?hl=ar&amp;entry=ttu" target="_blank" class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" data-uw-rm-brl="PR" data-uw-original-href="https://www.google.com/maps/place/%D8%B3%D9%83%D8%A7%D9%8A+%D9%81%D9%8A%D9%84%D8%AC+%D8%B3%D9%85%D8%A7+%D8%A3%D8%A8%D9%87%D8%A7+Sky+village%E2%80%AD/@18.2568084,42.4911438,17z/data=!3m1!4b1!4m6!3m5!1s0x15e35500492adedf:0xb297879c4ec03e27!8m2!3d18.2568084!4d42.4911438!16s%2Fg%2F11v_8948_q?hl=ar&amp;entry=ttu" aria-label="Location - open in a new tab" data-uw-rm-ext-link="" uw-rm-external-link-id="https://www.google.com/maps/place/%d8%b3%d9%83%d8%a7%d9%8a+%d9%81%d9%8a%d9%84%d8%ac+%d8%b3%d9%85%d8%a7+%d8%a3%d8%a8%d9%87%d8%a7+sky+village%e2%80%ad/@18.2568084,42.4911438,17z/data=!3m1!4b1!4m6!3m5!1s0x15e35500492adedf:0xb297879c4ec03e27!8m2!3d18.2568084!4d42.4911438!16s%2fg%2f11v_8948_q?hl=ar&amp;entry=ttu$location">
+                <p>Location</p>
+            </a>
+        </form>
+
+        <form>
             <div class="Events-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,4" alt="Events 4">
-                <span class="price-tag">$300 per night</span>
-                <div class="Events-info">Mountain View Hotel<p>Switzerland</p></div>
+                <img src="4-aloady-.png" alt="Events 4">
+                <span class="price-tag">20 SR per tiket</span>
+                <div class="Events-info">ًصيف الوادي<p>مخطط وادي بن هشبل</p></div>
             </div>
+            <a href="https://maps.app.goo.gl/q8eGmDL8SvknJ7RU7?g_st=iw" target="_blank" class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" data-uw-rm-brl="PR" data-uw-original-href="https://maps.app.goo.gl/q8eGmDL8SvknJ7RU7?g_st=iw" aria-label="Location - open in a new tab" data-uw-rm-ext-link="" uw-rm-external-link-id="https://maps.app.goo.gl/q8egmdl8svknj7ru7?g_st=iw$location">
+                <p>Location</p>
+            </a>
+        </form>
+
+        <form >
             <div class="Events-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,5" alt="Events 5">
-                <span class="price-tag">$210 per night</span>
-                <div class="Events-info">Sunset Beach Hotel<p>Hawaii, USA</p></div>
+                <img src="fiveevent.png" alt="Events 5">
+                <span class="price-tag">30 SR per tiket</span>
+                <div class="Events-info">بسطة القابل<p>ابها , السعوديه</p>
+                </div>
             </div>
+            <a href="https://www.google.com/maps?q=18.2201960,42.4979402&amp;z=17" target="_blank" class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" data-uw-rm-brl="PR" data-uw-original-href="https://www.google.com/maps?q=18.2201960,42.4979402&amp;z=17" aria-label="Location - open in a new tab" data-uw-rm-ext-link="" uw-rm-external-link-id="https://www.google.com/maps?q=18.2201960,42.4979402&amp;z=17$location">
+                <p>Location</p></a>
+        </form>
+            
+        <form>
             <div class="Events-card">
-                <img src="https://source.unsplash.com/400x300/?hotel,6" alt="Events 6">
-                <span class="price-tag">$190 per night</span>
-                <div class="Events-info">Modern City Hotel<p>Dubai, UAE</p></div>
-            </div>
+                <img src="lastevent.png" alt="Events 6">
+                <span class="price-tag">50 SR per tiket</span>
+                <div class="Events-info">ارياش<p>ابها , السعوديه</p></div>           
+             </div>
+            
+             <a href="https://maps.app.goo.gl/N3opMkQkN5eDoBBG9" target="_blank" class="my-6 w-64 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center" data-uw-rm-brl="PR" data-uw-original-href="https://maps.app.goo.gl/N3opMkQkN5eDoBBG9" aria-label="Location - open in a new tab" data-uw-rm-ext-link="" uw-rm-external-link-id="https://maps.app.goo.gl/n3opmkqkn5edobbg9$location">
+                <p>Location</p>
+            </a>
+        </form>
         </div>
     </section>
     
 
-    <script>
-        function updatePersons(num) {
-            document.getElementById("person-btn").innerText = "Person " + num + " ▼";
+    <script >
+       function updatePersons(num) {
+    document.getElementById("person-btn").innerText = "Person " + num + " ▼";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+   
+
+    // Hotel & Event Selection Alert
+    document.querySelectorAll(".hotel-card, .Events-card").forEach(card => {
+        card.addEventListener("click", function () {
+            let title = this.querySelector(".hotel-info, .Events-info").textContent.trim();
+            alert("You selected: " + title);
+        });
+    });
+
+    // 🔍 Search Room
+    document.getElementById("person-btn").addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Searching rooms...");
+    });
+    // Login Button Animation
+    const loginButton = document.querySelector(".login-btn");
+    loginButton.addEventListener("click", function () {
+        this.innerText = "Logging in...";
+        this.disabled = true;
+
+        setTimeout(() => {
+            this.innerText = "Login";
+            this.disabled = false;
+        }, 2000);
+    });
+
+});
+
+        </script>
+     
+     <script>
+        function redirectToLogin() {
+            window.location.href = "Login.html"; // 🔹 غير الرابط حسب مسار صفحة تسجيل الدخول الفعلي
         }
-    </script>
-
-    <script>
-    function redirectToLogin() {
-        window.location.href = "Login.html"; // 🔹 غير الرابط حسب مسار صفحة تسجيل الدخول الفعلي
-    }
-    </script>
-
-    <script>
-    function redirectTo() {
-        window.location.href = "Page-1.html";
-    }
-    </script>
-
-</body>
-</html>
+        </script>
+    
+        <script>
+        function redirectTo() {
+            window.location.href = "Page-1.html";
+        }
+        </script>
+</body></html>

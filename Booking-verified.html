@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Success</title>
+<Style>/* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+    }
+    
+    body {
+        background: url('image 5.png') no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Overlay for better text visibility */
+    .overlay {
+        background: rgba(0, 0, 0, 0.6); /* Darker overlay for contrast */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* White Box */
+    .container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 90px; /* More space inside */
+        border-radius: 20px;
+        text-align: center;
+        max-width: 1700px;
+        width: 90%;
+    }
+    
+    /* Heading */
+    h1 {
+        color: #0000ff;
+        font-size: 36px; /* Bigger title */
+        font-weight: bold;
+        margin-bottom: 35px;
+    }
+    
+    /* Check Icon */
+    .check-icon {
+        font-size: 100px; /* Larger check icon */
+        color: green;
+        margin-bottom: 30px;
+    }
+    
+    /* Message */
+    .message {
+        color: #0000ff;
+        font-size: 26px; /* Bigger text */
+        margin-bottom: 40px;
+        line-height: 1.5; /* Better spacing */
+    }
+    
+    /* Button */
+    button {
+        background-color: #2c4dd7;
+        color: white;
+        font-size: 24px; /* Bigger button text */
+        padding: 18px 40px; /* Larger button */
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+    
+    button:hover {
+        background-color: #1d3bb1;
+        transform: scale(1.08);
+    }
+    </Style></head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <h1>AI-POWERED TOURISM <br> PURCHASING SYSTEM</h1>
+            <div class="check-icon">✅</div>
+            <p class="message">Once we verified, you can access the dashboard.</p>
+            <button id="dashboardBtn">View Dashboard</button>
+        </div>
+    </div>
+
+    <script >
+        document.getElementById("dashboardBtn").addEventListener("click", function() {
+    alert("Redirecting to Dashboard...");
+    window.location.href = "dashboard.html"; // Replace with actual dashboard link
+});
+
+    </script>
+</body>
+</html>

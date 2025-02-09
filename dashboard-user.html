@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Tourism Purchasing System</title>
+    <style>
+    body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Menu */
+.menu {
+    width: 70px;
+    background: #1e00c4;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s ease-in-out;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 2px 0px 5px rgba(19, 7, 255, 0.2);
+    overflow: hidden;
+}
+/* عند مرور الماوس تكبر القائمة */
+.menu:hover {
+    width: 250px;
+}
+.menu button {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    opacity: 0.8;
+}
+
+/* Button Hover Effects */
+.menu button:hover {
+    background: #0c014c96;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+/* Icons for Sidebar */
+.menu button i {
+    font-size: 18px;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 10px; /* Adjusts content position */
+    transition: margin-left 0.3s ease-in-out;
+}
+.menu:hover ~ .content {
+    margin-left: 250px;
+}
+
+/* Top Bar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* تعديل الصفحة الرئيسية لتجنب تغطية القائمة */
+.dashboard {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 70px; /* Adjusts content position */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* عند تكبير القائمة، تتحرك الصفحة الرئيسية */
+.menu:hover ~ .dashboard {
+    margin-left: 250px;
+}
+
+
+        .header {
+            display: flex;
+            flex-direction: column; /* ✅ يجعل العناصر تحت بعض */
+            align-items:flex-start; /* ✅ محاذاة لليسار */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .content {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .booking-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .booking-item {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            border-bottom: 1px solid #DDDFE1;
+        }
+
+        .booking-images {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .booking-images img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .button {
+    background: #0033ff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Button Hover Animation */
+.button:hover {
+    background: #406cff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* عند تمرير الماوس يكبر الزر */
+.button:hover {
+    background: #406cff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* عند إخراج الماوس، يعود الزر بحركة سلسة */
+.button:not(:hover) {
+    animation: exitFade 0.3s ease-in-out;
+}
+
+@keyframes exitFade {
+    0% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
+/* تأثير الاهتزاز عند النقر */
+.button:active {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Save Button Pulse Effect */
+#save-booking {
+    animation: pulse 1.5s infinite;
+}
+
+/* Edit & Delete Buttons */
+.edit-btn {
+    color: #000;
+    background: #eaff00;
+}
+.edit-btn:hover {
+    background: #909d01;
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.delete-btn {
+    color: #000;
+    background: #ff1900;
+}
+.delete-btn:hover {
+    background: #730c00;
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+/* تأثير الظهور التدريجي عند تحميل الصفحة */
+
+
+        /* نافذة إضافة / تعديل الحجز */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal input, .modal textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .modal button {
+            background: #406cff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .modal button:hover {
+            background: #202289;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+
+        body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 10px; /* Adjusts content position */
+    transition: margin-left 0.3s ease-in-out;
+}
+.me
+        .booking-card img {
+            width: 50%;
+            height: 300px;
+            background-color: #ddd;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #777;
+            border-radius: 10px;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: blue;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .booking-info {
+            padding: 15px;
+        }
+
+        .booking-info h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .booking-info p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+    /* تنسيق الحاوية لوضع البطاقة في نفس المكان */
+.booking-container {
+    display: flex;
+    justify-content: center; /* يجعل البطاقة في المنتصف */
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* تجعلها في منتصف الصفحة */
+    background: #f8f9fa; /* لون الخلفية مشابه للتصميم */
+}
+
+/* تصميم البطاقة بشكل احترافي */
+.booking-card {
+    display: block;
+    width: 250px; /* عرض مناسب للبطاقة */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* تأثير التحريك عند تمرير الماوس */
+.booking-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* تنسيق صورة الفندق */
+.booking-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* تكبير الصورة عند تمرير الماوس */
+.booking-card:hover img {
+    transform: scale(1.05);
+}
+
+/* تصميم شريط السعر */
+.price-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #0056ff;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* تنسيق معلومات الحجز */
+.booking-details {
+    padding: 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* تغيير لون النص عند تمرير الماوس */
+.booking-card:hover .booking-details {
+    color: #0056ff;
+}
+
+.booking-details h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.booking-details p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* تنسيق قسم الدفع */
+.payment-info {
+    padding: 12px 15px;
+    background: #f1f1f1;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 12px 12px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* تغيير لون قسم الدفع عند تمرير الماوس */
+.booking-card:hover .payment-info {
+    background: #e0e0e0;
+}
+
+.payment-info span {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+
+    </style>
+
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h2 style="color: white; font-size: 20px; text-align: center;">Dashboard</h2>
+        <button><i>📊</i> Home</button>
+        <button><i>👥</i> Users</button>
+        <button><i>🏨</i> Business Owners</button>
+        <button><i>📅</i> Bookings</button>
+        <button><i>💰</i> Refund</button>
+        <button><i>⚙️</i> Settings</button>
+    </div>
+    
+    <div class="dashboard">
+        <div class="header">
+            <h3> Hello, Meshal</h3>
+            <p>Have a nice day</p>
+        </div>
+        <div class="content">
+            <h1>Booking List</h1>
+        <a href="booking-details.html" class="booking-card">
+            <div class="price-tag">$200 per night</div>
+            <img src="firstevent.png" alt="Resort">
+            <div class="booking-details">
+                <h3>The St. Regis Red Sea Resort</h3>
+                <p>Ummahat Island 1, KSA</p>
+                <p>20 Jan - 22 Jan</p>
+                <p>02 Days</p>
+            </div>
+            <div class="payment-info">
+                <span>Initial Payment $200</span>
+                <span>Total Payment $400</span>
+            </div>
+        </a>
+        </div>
+            </div>
+        </div>
+    
+
+</div>
+</div>
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let editingIndex = null;
+        let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderBookings();
+
+            document.getElementById("new-booking-btn").addEventListener("click", () => {
+                document.getElementById("modal-title").textContent = "Add New Booking";
+                document.getElementById("hotel-name").value = "";
+                document.getElementById("hotel-description").value = "";
+                document.getElementById("hotel-price").value = "";
+                document.getElementById("hotel-images").value = "";
+                editingIndex = null;
+                document.getElementById("booking-modal").style.display = "flex";
+            });
+
+            document.getElementById("close-modal").addEventListener("click", () => {
+                document.getElementById("booking-modal").style.display = "none";
+            });
+
+            document.getElementById("save-booking").addEventListener("click", () => {
+                const name = document.getElementById("hotel-name").value.trim();
+                const description = document.getElementById("hotel-description").value.trim();
+                const price = document.getElementById("hotel-price").value.trim();
+                const imagesInput = document.getElementById("hotel-images").files;
+
+                if (!name || !description || !price) {
+                    Swal.fire("Error!", "All fields are required!", "error");
+                    return;
+                }
+
+                let imagesHTML = '<div class="booking-images">';
+                let imagesArray = Array.from(imagesInput);
+                let imageUrls = [];
+
+                imagesArray.forEach(file => {
+                    const imgURL = URL.createObjectURL(file);
+                    imageUrls.push(imgURL);
+                    imagesHTML += `<img src="${imgURL}" alt="Hotel Image">`;
+                });
+
+                imagesHTML += '</div>';
+                const dateAdded = new Date().toLocaleString();
+
+                if (editingIndex !== null) {
+                    bookings[editingIndex] = { name, description, price, date: currentDate, images: imageUrls };
+                    editingIndex = null;
+                    Swal.fire("Updated!", "The booking has been updated successfully.", "info");
+                } else {
+                    bookings.push({ name, description, price, date: currentDate, images: imageUrls });
+                    Swal.fire("Saved!", "The booking has been added successfully.", "success");
+                }
+
+                localStorage.setItem("bookings", JSON.stringify(bookings));
+                renderBookings();
+                document.getElementById("booking-modal").style.display = "none";
+            });
+        });
+
+        function renderBookings() {
+            const bookingList = document.getElementById("booking-list");
+            bookingList.innerHTML = "";
+
+            bookings.forEach((booking, index) => {
+                let imagesHTML = '<div class="booking-images">';
+                booking.images.forEach(imgURL => {
+                    imagesHTML += `<img src="${imgURL}" alt="Hotel Image">`;
+                });
+                imagesHTML += '</div>';
+
+                const bookingItem = document.createElement("li");
+                bookingItem.classList.add("booking-item");
+                bookingItem.innerHTML = `
+                    <span><strong>${booking.name}</strong> <br> <small>Date: ${booking.date}</small></span>
+                    ${imagesHTML}
+                    <p><strong>Description:</strong> ${booking.description}</p>
+                    <p><strong>Price:</strong> $${booking.price}</p>
+                    <div class="booking-actions">
+                        <button class="button edit-btn" onclick="editBooking(${index})">✏️ Edit</button>
+                        <button class="button delete-btn" onclick="confirmDelete(${index})">🗑️ Delete</button>
+                    </div>
+                `;
+                bookingList.appendChild(bookingItem);
+            });
+        }
+
+        function confirmDelete(index) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You will not be able to recover this booking!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "Cancel"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    deleteBooking(index);
+                    Swal.fire("Deleted!", "The booking has been deleted.", "success");
+                }
+            });
+        }
+
+        function deleteBooking(index) {
+            bookings.splice(index, 1);
+            localStorage.setItem("bookings", JSON.stringify(bookings));
+            renderBookings();
+        }
+
+        function editBooking(index) {
+            const booking = bookings[index];
+            document.getElementById("hotel-name").value = booking.name;
+            document.getElementById("hotel-description").value = booking.description;
+            document.getElementById("hotel-price").value = booking.price;
+            editingIndex = index;
+            document.getElementById("modal-title").textContent = "Edit Booking";
+            document.getElementById("booking-modal").style.display = "flex";
+        }
+        
+    </script>
+</body>
+
+    
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section {
+            padding: 40px 10%;
+        }
+
+        .hotel-title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .hotel-images img {
+            border-radius: 8px;
+            width: 100%;
+            height: auto;
+        }
+
+        .about-section {
+            margin-top: 20px;
+        }
+
+        .booking-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .booking-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .booking-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .btn-primary {
+            background-color: #0056b3;
+            border: none;
+            transition: 0.3s ease-in-out;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #003f7f;
+            transform: scale(1.1);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 0 10%;
+        }
+
+        .feature-item {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item i {
+            font-size: 24px;
+            color: #0056b3;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            margin-top: 40px;
+        }
+
+        .footer button {
+            transition: 0.3s ease-in-out;
+        }
+
+        .footer button:hover {
+            background-color: #003f7f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white p-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">AI-POWERED TOURISM PURCHASING SYSTEM.</a>
+        <button class="btn btn-primary">Login</button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <p><a href="#">Home</a> / <strong>Hotel Details</strong></p>
+    <h2 class="hotel-title">The St. Regis Red Sea Resort</h2>
+    <p>Ummahat Island, KSA</p>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="hotel-images">
+                <img src="c:\Users\pc\Desktop\proj\DetOFhotel\fourhotel.png" alt="Main Image">
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <img src="C:\Users\pc\Desktop\proj\DetOFhotel\sechotel.png.png" alt="Room Image">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="C:\Users\pc\Desktop\proj\DetOFhotel\sixhotel.png.png" alt="Bathroom Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="booking-card">
+                <h5>Start Booking</h5>
+                <p class="booking-price">$200 <span class="text-muted">per Day</span></p>
+                <button class="btn btn-primary w-100">Book Now!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section mt-4">
+        <h4>About the place</h4>
+        <p>
+            Located in Jhonak, The St. Regis Red Sea Beachfront Resort is a designated 5-star property with a private beach bar. The restaurant is set in sections and 24-hour reception. Free WiFi is available throughout the property.
+        </p>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="features">
+    <div class="feature-item">
+        <i class="fa fa-bed"></i>
+        <p>1 Bedroom</p>
+    </div>
+    <div class="feature-item">
+        <i class="fa fa-couch"></i>
+        <p>1 Living Room</p>
+    </div>
+    <div class="feature-item">
+        <i class="fa fa-bath"></i>
+        <p>1 Bathroom</p>
+    </div>
+    <div class="feature-item">
+        <i class="fa fa-utensils"></i>
+        <p>1 Dining Room</p>
+    </div>
+    <div class="feature-item">
+        <i class="fa fa-wifi"></i>
+        <p>10 mbp/s</p>
+    </div>
+    <div class="feature-item">
+        <i class="fa fa-tv"></i>
+        <p>2 Television</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p class="fw-bold">AI-POWERED TOURISM PURCHASING SYSTEM.</p>
+    <button class="btn btn-primary">Register Now</button>
+</div>
+
+<script>
+    document.querySelector(".btn-primary").addEventListener("click", function () {
+        alert("Booking feature coming soon!");
+    });
+</script>
+
+</body>
+</html>
