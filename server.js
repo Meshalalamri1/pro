@@ -13,6 +13,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Serve static files from the root directory
+app.use(express.static('./'));
+
+// Root route handler
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: './' });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/hotels", hotelRoutes);
 app.use("/api/events", eventRoutes);
