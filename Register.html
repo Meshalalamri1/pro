@@ -222,7 +222,8 @@
         <script>
             document
                 .getElementById("registerBtn")
-                .addEventListener("click", async function () {
+                .addEventListener("click", async function (e) {
+                    e.preventDefault();
                     const name = document.getElementById("name").value;
                     const email = document.getElementById("email").value;
                     const phone = document.getElementById("phone").value;

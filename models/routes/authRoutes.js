@@ -65,4 +65,32 @@ router.post("/login", async (req, res) => {
     }
 });
 
+// Get all users
+router.get("/users", async (req, res) => {
+    try {
+        db.all("SELECT id, name, email FROM users", [], (err, users) => {
+            if (err) {
+                return res.status(500).json({ message: "Server Error", error: err });
+            }
+            res.json(users);
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Server Error", error });
+    }
+});
+
+// Delete user
+router.delete("/users/:id", async (req, res) => {
+    try {
+        db.run("DELETE FROM users WHERE id = ?", [req.params.id], (err) => {
+            if (err) {
+                return res.status(500).json({ message: "Server Error", error: err });
+            }
+            res.json({ message: "User deleted successfully" });
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Server Error", error });
+    }
+});
+
 module.exports = router;
