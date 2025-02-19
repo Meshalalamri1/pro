@@ -11,7 +11,17 @@ const bookingRoutes = require("./models/routes/bookingRoutes");
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: "Internal server error", error: err.message });
+});
 
 // Serve static files from the root directory
 app.use(express.static('./', {
