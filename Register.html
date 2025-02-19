@@ -243,21 +243,18 @@
                     }
 
                     try {
-                        const response = await fetch(
-                            "/api/auth/register",
-                            {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({
-                                    name,
-                                    email,
-                                    phone,
-                                    country,
-                                    username,
-                                    password,
-                                }),
-                            },
-                        );
+                        const response = await fetch("/api/auth/register", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                name,
+                                email,
+                                phone,
+                                country,
+                                username,
+                                password,
+                            }),
+                        });
 
                         const data = await response.json();
 
@@ -265,7 +262,7 @@
                             alert(
                                 "Registration successful! You can now login.",
                             );
-                            window.location.href = "login.html"; // إعادة توجيه المستخدم لصفحة تسجيل الدخول
+                            window.location.href = "Login.html"; // إعادة توجيه المستخدم لصفحة تسجيل الدخول
                         } else {
                             alert(data.message);
                         }
