@@ -292,7 +292,7 @@
             color: #777;
             border-radius: 10px;
         }
-        
+
         .price-tag {
             position: absolute;
             top: 10px;
@@ -418,7 +418,26 @@
     color: #333;
 }
 
-
+@media (max-width: 900px) {
+    .menu {
+        width: 50px;
+    }
+    .menu:hover {
+        width: 200px;
+    }
+    .dashboard {
+        margin-left: 50px;
+    }
+    .menu:hover ~ .dashboard {
+        margin-left: 200px;
+    }
+    .booking-card {
+        width: 100%;
+    }
+    .header {
+        padding: 10px;
+    }
+}
     </style>
 
 
@@ -434,7 +453,7 @@
         <button><i>💰</i> Refund</button>
         <button><i>⚙️</i> Settings</button>
     </div>
-    
+
     <div class="dashboard">
         <div class="header">
             <h3> Hello, Meshal</h3>
@@ -459,11 +478,11 @@
         </div>
             </div>
         </div>
-    
+
 
 </div>
 </div>
-    
+
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -586,9 +605,9 @@
             document.getElementById("modal-title").textContent = "Edit Booking";
             document.getElementById("booking-modal").style.display = "flex";
         }
-        
+
     </script>
 </body>
 
-    
+
 </html>

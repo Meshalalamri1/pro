@@ -1,5 +1,6 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Powered Tourism Purchasing System</title>
     <style>
@@ -208,10 +209,34 @@
             font-weight: bold;
         }
         @media (max-width: 900px) {
-            .hotels-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+    .hotels-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .hero-text {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .hero-image {
+        width: 100%;
+    }
+    nav ul {
+        display: none;
+    }
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .search-box button, .search-box .dropdown {
+        width: 100%;
+    }
+    header {
+        padding: 10px 20px;
+    }
+}
         @media (max-width: 600px) {
             .hotels-grid {
                 grid-template-columns: 1fr;
