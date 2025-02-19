@@ -14,7 +14,11 @@ app.use(express.json());
 app.use(cors());
 
 // Serve static files from the root directory
-app.use(express.static('./'));
+app.use(express.static('./', {
+    fallthrough: true,
+    index: 'index.html',
+    caseSensitive: false
+}));
 
 // Root route handler
 app.get('/', (req, res) => {
