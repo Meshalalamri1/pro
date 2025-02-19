@@ -1,14 +1,59 @@
 
-const mongoose = require("mongoose");
+const sqlite3 = require('sqlite3').verbose();
+const path = require('path');
 
-const uri = "mongodb+srv://meshal:Meshal2009@cluster0.ebduv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const db = new sqlite3.Database(path.join(__dirname, 'database.sqlite'), (err) => {
+    if (err) {
+        console.error('❌ Error connecting to database:', err);
+    } else {
+        console.log('✅ Connected to SQLite database');
+        initializeTables();
+    }
+});
 
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverApi: { version: '1', strict: true, deprecationErrors: true }
-})
-.then(() => console.log("✅ Connected to MongoDB"))
-.catch(err => console.error("❌ MongoDB connection error:", err));
+function initializeTables() {
+    db.serialize(() => {
+        // Users table
+        db.run(`CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE,
+            password TEXT,
+            name TEXT,
+            email TEXT,
+            phone TEXT,
+            country TEXT
+        )`);
 
-module.exports = mongoose;
+        // Hotels table
+        db.run(`CREATE TABLE IF NOT EXISTS hotels (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            location TEXT,
+            price REAL,
+            description TEXT
+        )`);
+
+        // Events table
+        db.run(`CREATE TABLE IF NOT EXISTS events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            location TEXT,
+            price REAL,
+            date TEXT
+        )`);
+
+        // Bookings table
+        db.run(`CREATE TABLE IF NOT EXISTS bookings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            userId INTEGER,
+            hotelId INTEGER,
+            eventId INTEGER,
+            bookingDate TEXT,
+            FOREIGN KEY(userId) REFERENCES users(id),
+            FOREIGN KEY(hotelId) REFERENCES hotels(id),
+            FOREIGN KEY(eventId) REFERENCES events(id)
+        )`);
+    });
+}
+
+module.exports = db;
