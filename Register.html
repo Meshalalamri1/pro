@@ -1,236 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Register</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
 
-        body {
-            background: #1c1c1c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+            body {
+                background: #1c1c1c;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
 
-        .container {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-            background: white;
-        }
-
-        .left-section {
-            width: 50%;
-            background: url('https://source.unsplash.com/1600x900/?tourism') no-repeat center center/cover;
-            position: relative;
-        }
-
-        .overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .overlay h2 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #1D2B53;
-            padding: 20px;
-        }
-
-        .right-section {
-            width: 50%;
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .right-section h2 {
-            font-size: 26px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            font-size: 16px;
-            font-weight: bold;
-            display: block;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .terms {
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .terms a {
-            color: blue;
-            text-decoration: none;
-        }
-
-        .btn-register {
-            display: block;
-            width: 100%;
-            background: blue;
-            color: white;
-            padding: 14px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .extra-links {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .extra-links a {
-            color: black;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .extra-links a:hover {
-            color: blue;
-        }
-
-        /* جعل التصميم متجاوب */
-        @media (max-width: 768px) {
             .container {
-                flex-direction: column;
+                display: flex;
+                width: 100%;
+                height: 100vh;
+                background: white;
             }
+
             .left-section {
-                width: 100%;
-                height: 40vh;
+                width: 50%;
+                background: url("https://source.unsplash.com/1600x900/?tourism")
+                    no-repeat center center/cover;
+                position: relative;
             }
+
+            .overlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.6);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .overlay h2 {
+                font-size: 32px;
+                font-weight: bold;
+                color: #1d2b53;
+                padding: 20px;
+            }
+
             .right-section {
+                width: 50%;
+                padding: 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .right-section h2 {
+                font-size: 26px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .input-group {
+                margin-bottom: 15px;
+            }
+
+            .input-group label {
+                font-size: 16px;
+                font-weight: bold;
+                display: block;
+            }
+
+            .input-group input {
                 width: 100%;
-                height: 60vh;
-                padding: 40px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="left-section">
-            <div class="overlay">
-                <h2>AI-POWERED TOURISM PURCHASING SYSTEM</h2>
-            </div>
-        </div>
-
-        <div class="right-section">
-            <h2>Create Account</h2>
-
-            <div class="input-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter your name">
-            </div>
-
-            <div class="input-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="name@gmail.com">
-            </div>
-
-            <div class="input-group">
-                <label for="phone">Phone No</label>
-                <input type="text" id="phone" placeholder="With Country Code">
-            </div>
-
-            <div class="input-group">
-                <label for="country">Country</label>
-                <input type="text" id="country" placeholder="Country Name">
-            </div>
-
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Username">
-            </div>
-
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="6+ characters">
-            </div>
-
-            <p class="terms">By signing up you agree to <a href="#">terms and conditions</a>.</p>
-
-            <button class="btn-register" id="registerBtn">Register</button>
-
-            <div class="extra-links">
-                <a href="login.html">Login</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- كود JavaScript للتسجيل -->
-    <script>
-        document.getElementById("registerBtn").addEventListener("click", async function () {
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const phone = document.getElementById("phone").value;
-            const country = document.getElementById("country").value;
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            if (!name || !email || !phone || !country || !username || !password) {
-                alert("Please fill all fields.");
-                return;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
             }
 
-            try {
-                const response = await fetch("http://localhost:5000/api/auth/register", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name, email, phone, country, username, password })
-                });
+            .terms {
+                font-size: 14px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
 
-                const data = await response.json();
+            .terms a {
+                color: blue;
+                text-decoration: none;
+            }
 
-                if (response.ok) {
-                    alert("Registration successful! You can now login.");
-                    window.location.href = "login.html"; // إعادة توجيه المستخدم لصفحة تسجيل الدخول
-                } else {
-                    alert(data.message);
+            .btn-register {
+                display: block;
+                width: 100%;
+                background: blue;
+                color: white;
+                padding: 14px;
+                font-size: 18px;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .extra-links {
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .extra-links a {
+                color: black;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .extra-links a:hover {
+                color: blue;
+            }
+
+            /* جعل التصميم متجاوب */
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
                 }
-            } catch (error) {
-                alert("Server error. Please try again later.");
-                console.error(error);
+                .left-section {
+                    width: 100%;
+                    height: 40vh;
+                }
+                .right-section {
+                    width: 100%;
+                    height: 60vh;
+                    padding: 40px;
+                }
             }
-        });
-    </script>
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left-section">
+                <div class="overlay">
+                    <h2>AI-POWERED TOURISM PURCHASING SYSTEM</h2>
+                </div>
+            </div>
 
-</body>
+            <div class="right-section">
+                <h2>Create Account</h2>
+
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="name@gmail.com"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Phone No</label>
+                    <input
+                        type="text"
+                        id="phone"
+                        placeholder="With Country Code"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="country">Country</label>
+                    <input
+                        type="text"
+                        id="country"
+                        placeholder="Country Name"
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Username" />
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="6+ characters"
+                    />
+                </div>
+
+                <p class="terms">
+                    By signing up you agree to
+                    <a href="#">terms and conditions</a>.
+                </p>
+
+                <button class="btn-register" id="registerBtn">Register</button>
+
+                <div class="extra-links">
+                    <a href="login.html">Login</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- كود JavaScript للتسجيل -->
+        <script>
+            document
+                .getElementById("registerBtn")
+                .addEventListener("click", async function () {
+                    const name = document.getElementById("name").value;
+                    const email = document.getElementById("email").value;
+                    const phone = document.getElementById("phone").value;
+                    const country = document.getElementById("country").value;
+                    const username = document.getElementById("username").value;
+                    const password = document.getElementById("password").value;
+
+                    if (
+                        !name ||
+                        !email ||
+                        !phone ||
+                        !country ||
+                        !username ||
+                        !password
+                    ) {
+                        alert("Please fill all fields.");
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch(
+                            "http://localhost:5000/api/auth/register",
+                            {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({
+                                    name,
+                                    email,
+                                    phone,
+                                    country,
+                                    username,
+                                    password,
+                                }),
+                            },
+                        );
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            alert(
+                                "Registration successful! You can now login.",
+                            );
+                            window.location.href = "login.html"; // إعادة توجيه المستخدم لصفحة تسجيل الدخول
+                        } else {
+                            alert(data.message);
+                        }
+                    } catch (error) {
+                        alert("Server error. Please try again later.");
+                        console.error(error);
+                    }
+                });
+        </script>
+    </body>
 </html>
