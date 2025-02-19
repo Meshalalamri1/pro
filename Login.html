@@ -194,18 +194,37 @@
         </div>
     </div>
 
-    <!-- إضافة JavaScript لتوجيه المستخدم بعد تسجيل الدخول -->
+    <!-- كود JavaScript لتسجيل الدخول -->
     <script>
-        document.getElementById("loginBtn").addEventListener("click", function() {
-            // التحقق من إدخال المستخدم وكلمة المرور (بسيط - يمكن تحسينه)
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+        document.getElementById("loginBtn").addEventListener("click", async function () {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
 
-            if (username.trim() === "" || password.trim() === "") {
+            if (!username || !password) {
                 alert("Please enter both username and password.");
-            } else {
-                // تحويل المستخدم إلى الصفحة الرئيسية بعد تسجيل الدخول
-                window.location.href = "index.html";
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:5000/api/auth/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // حفظ التوكن في localStorage لاستخدامه لاحقًا
+                    localStorage.setItem("token", data.token);
+                    alert("Login successful!");
+                    window.location.href = "index.html"; // تحويل المستخدم للصفحة الرئيسية
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("Server error. Please try again later.");
+                console.error(error);
             }
         });
     </script>
