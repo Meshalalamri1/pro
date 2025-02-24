@@ -1,23 +1,29 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-const db = new sqlite3.Database(path.join(__dirname, 'database.sqlite'), (err) => {
+const db = new sqlite3.Database('./models/database.sqlite', (err) => {
     if (err) {
         console.error('Error connecting to database:', err);
     } else {
         console.log('Connected to SQLite database');
 
-        // Create new users table with all required fields
+        // إنشاء جدول المستخدمين إذا لم يكن موجوداً
         db.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE,
-            password TEXT,
-            name TEXT,
-            email TEXT UNIQUE,
+            name TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
             phone TEXT,
             country TEXT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        )`);
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            role TEXT DEFAULT 'user'
+        )`, (err) => {
+            if (err) {
+                console.error('Error creating users table:', err);
+            } else {
+                console.log('Users table ready');
+            }
+        });
 
         // Hotels table
         db.run(`CREATE TABLE IF NOT EXISTS hotels (
