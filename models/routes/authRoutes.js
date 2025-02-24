@@ -67,9 +67,21 @@ router.post("/login", async (req, res) => {
 
 // حذف مستخدم
 // حذف مستخدم
-router.delete('/users/:id', async (req, res) => {
-    console.log('Delete request received for user:', req.params.id);
+router.delete('/users/:id', (req, res) => {
     const userId = req.params.id;
+    
+    db.run('DELETE FROM users WHERE id = ?', [userId], function(err) {
+        if (err) {
+            console.error('Error deleting user:', err);
+            return res.status(500).json({ message: 'Error deleting user', error: err.message });
+        }
+        
+        if (this.changes === 0) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        
+        res.json({ message: 'User deleted successfully' });
+    });
 
     // التحقق من وجود المستخدم أولاً
     db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
