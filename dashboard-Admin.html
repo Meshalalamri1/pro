@@ -274,7 +274,6 @@ body {
 
                         users.forEach(user => {
                             const row = document.createElement('tr');
-                            row.setAttribute('data-user-id', user.id); // Add data-user-id attribute
                             row.innerHTML = `
                                 <td>${user.name}</td>
                                 <td>${user.email}</td>
@@ -295,27 +294,13 @@ body {
                     if (confirm('Are you sure you want to delete this user?')) {
                         try {
                             const response = await fetch(`/api/auth/users/${userId}`, {
-                                method: 'DELETE',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
+                                method: 'DELETE'
                             });
-
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-
-                            const data = await response.json();
-                            alert('User deleted successfully');
-
-                            // Remove the user row from the table without reloading
-                            const userRow = document.querySelector(`tr[data-user-id="${userId}"]`);
-                            if (userRow) {
-                                userRow.remove();
+                            if (response.ok) {
+                                fetchUsers(); //reload the users after successful deletion.
                             }
                         } catch (error) {
-                            console.error('Error:', error);
-                            alert('Error deleting user: ' + error.message);
+                            console.error('Error deleting user:', error);
                         }
                     }
                 }
