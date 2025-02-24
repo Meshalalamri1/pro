@@ -105,11 +105,24 @@ router.post("/users", (req, res) => {
 
 // Delete user
 router.delete("/users/:id", (req, res) => {
-    db.run("DELETE FROM users WHERE id = ?", [req.params.id], (err) => {
+    const userId = req.params.id;
+    
+    // First check if user exists
+    db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
         if (err) {
             return res.status(500).json({ message: "Server Error", error: err });
         }
-        res.json({ message: "User deleted successfully" });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        
+        // If user exists, delete them
+        db.run("DELETE FROM users WHERE id = ?", [userId], (err) => {
+            if (err) {
+                return res.status(500).json({ message: "Server Error", error: err });
+            }
+            res.json({ message: "User deleted successfully", id: userId });
+        });
     });
 });
 

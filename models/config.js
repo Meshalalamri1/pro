@@ -7,12 +7,19 @@ const db = new sqlite3.Database(path.join(__dirname, 'database.sqlite'), (err) =
     } else {
         console.log('Connected to SQLite database');
 
-        // إنشاء جدول المستخدمين
+        // Drop existing users table if exists
+        db.run("DROP TABLE IF EXISTS users");
+
+        // Create new users table with all required fields
         db.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            email TEXT UNIQUE NOT NULL,
-            status TEXT NOT NULL
+            username TEXT UNIQUE,
+            password TEXT,
+            name TEXT,
+            email TEXT UNIQUE,
+            phone TEXT,
+            country TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )`);
 
         // Hotels table
