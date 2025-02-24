@@ -1,27 +1,18 @@
-
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 const db = new sqlite3.Database(path.join(__dirname, 'database.sqlite'), (err) => {
     if (err) {
-        console.error('❌ Error connecting to database:', err);
+        console.error('Error connecting to database:', err);
     } else {
-        console.log('✅ Connected to SQLite database');
-        initializeTables();
-    }
-});
+        console.log('Connected to SQLite database');
 
-function initializeTables() {
-    db.serialize(() => {
-        // Users table
+        // إنشاء جدول المستخدمين
         db.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE,
-            password TEXT,
-            name TEXT,
-            email TEXT,
-            phone TEXT,
-            country TEXT
+            name TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
+            status TEXT NOT NULL
         )`);
 
         // Hotels table
@@ -53,7 +44,7 @@ function initializeTables() {
             FOREIGN KEY(hotelId) REFERENCES hotels(id),
             FOREIGN KEY(eventId) REFERENCES events(id)
         )`);
-    });
-}
+    }
+});
 
 module.exports = db;

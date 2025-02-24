@@ -79,18 +79,38 @@ router.get("/users", async (req, res) => {
     }
 });
 
-// Delete user
-router.delete("/users/:id", async (req, res) => {
-    try {
-        db.run("DELETE FROM users WHERE id = ?", [req.params.id], (err) => {
+// Get all users
+router.get("/users", (req, res) => {
+    db.all("SELECT * FROM users", [], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ message: "Server Error", error: err });
+        }
+        res.json(rows);
+    });
+});
+
+// Add new user 
+router.post("/users", (req, res) => {
+    const { name, email, status } = req.body;
+    db.run("INSERT INTO users (name, email, status) VALUES (?, ?, ?)", 
+        [name, email, status], 
+        function(err) {
             if (err) {
                 return res.status(500).json({ message: "Server Error", error: err });
             }
-            res.json({ message: "User deleted successfully" });
-        });
-    } catch (error) {
-        res.status(500).json({ message: "Server Error", error });
-    }
+            res.json({ id: this.lastID, name, email, status });
+        }
+    );
+});
+
+// Delete user
+router.delete("/users/:id", (req, res) => {
+    db.run("DELETE FROM users WHERE id = ?", [req.params.id], (err) => {
+        if (err) {
+            return res.status(500).json({ message: "Server Error", error: err });
+        }
+        res.json({ message: "User deleted successfully" });
+    });
 });
 
 module.exports = router;
