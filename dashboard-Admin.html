@@ -292,6 +292,7 @@ body {
 
                 // Delete user
                 async function deleteUser(userId) {
+                    console.log('Attempting to delete user:', userId);
                     if (confirm('Are you sure you want to delete this user?')) {
                         try {
                             const response = await fetch(`/api/auth/users/${userId}`, {
@@ -300,7 +301,7 @@ body {
                                     'Content-Type': 'application/json'
                                 }
                             });
-
+                            console.log('Delete response:', response);
                             if (!response.ok) {
                                 throw new Error(`HTTP error! status: ${response.status}`);
                             }

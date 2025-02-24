@@ -67,6 +67,7 @@ router.post("/login", async (req, res) => {
 
 // حذف مستخدم
 router.delete('/users/:id', (req, res) => {
+    console.log('Delete request received for user:', req.params.id);
     const userId = req.params.id;
 
     // التحقق من وجود المستخدم أولاً
