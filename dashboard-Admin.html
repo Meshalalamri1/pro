@@ -271,7 +271,7 @@ body {
                         const users = await response.json();
                         const userTable = document.getElementById('user-table');
                         userTable.innerHTML = '';
-                        
+
                         users.forEach(user => {
                             const row = document.createElement('tr');
                             row.innerHTML = `
@@ -279,7 +279,7 @@ body {
                                 <td>${user.email}</td>
                                 <td>Active</td>
                                 <td>
-                                    <button class="delete-btn" onclick="deleteUser('${user.id}')">🗑️ Delete</button>
+                                    <button class="delete-btn" onclick="deleteUser(${user.id})">🗑️ Delete</button>
                                 </td>
                             `;
                             userTable.appendChild(row);
@@ -297,7 +297,7 @@ body {
                                 method: 'DELETE'
                             });
                             if (response.ok) {
-                                fetchUsers();
+                                fetchUsers(); //reload the users after successful deletion.
                             }
                         } catch (error) {
                             console.error('Error deleting user:', error);
@@ -333,15 +333,15 @@ body {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailPattern.test(email);
     }
-    
+
     // ✅ تحميل المستخدمين من localStorage
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    
+
     // ✅ تحديث الجدول بعد أي تغيير
     function renderUsers(filteredUsers = users) {
         const tableBody = document.getElementById("user-table");
         tableBody.innerHTML = "";
-    
+
         filteredUsers.forEach((user, index) => {
             tableBody.innerHTML += `
                 <tr>
@@ -352,7 +352,7 @@ body {
                 </tr>
             `;
         });
-    
+
         // إعادة ربط أحداث الحذف بالأزرار بعد التحديث
         document.querySelectorAll(".delete-btn").forEach(button => {
             button.addEventListener("click", function () {
@@ -360,7 +360,7 @@ body {
             });
         });
     }
-    
+
     // ✅ حذف المستخدم بعد التأكيد
     function deleteUser(index) {
         Swal.fire({
@@ -376,12 +376,12 @@ body {
                 users.splice(index, 1);
                 localStorage.setItem("users", JSON.stringify(users));
                 renderUsers();
-    
+
                 Swal.fire("Deleted!", "User has been removed.", "success");
             }
         });
     }
-    
+
     // ✅ فتح وإغلاق نافذة الإضافة
     document.getElementById("add-user").addEventListener("click", () => {
         document.getElementById("user-modal").style.display = "flex";
@@ -389,13 +389,13 @@ body {
     document.getElementById("close-modal").addEventListener("click", () => {
         document.getElementById("user-modal").style.display = "none";
     });
-    
+
     // ✅ إضافة مستخدم جديد مع التحقق من صحة البريد الإلكتروني
     document.getElementById("save-user").addEventListener("click", () => {
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const status = document.getElementById("status").value;
-    
+
         // ✅ التأكد من أن الحقول ليست فارغة
         if (!name || !email) {
             Swal.fire({
@@ -405,7 +405,7 @@ body {
             });
             return;
         }
-    
+
         // ✅ التحقق من صحة البريد الإلكتروني
         if (!isValidEmail(email)) {
             Swal.fire({
@@ -415,7 +415,7 @@ body {
             });
             return;
         }
-    
+
         // ✅ التحقق من عدم تكرار البريد الإلكتروني
         if (users.some(user => user.email === email)) {
             Swal.fire({
@@ -425,17 +425,17 @@ body {
             });
             return;
         }
-    
+
         // ✅ إضافة المستخدم إلى القائمة وتحديث التخزين المحلي
         users.push({ name, email, status });
         localStorage.setItem("users", JSON.stringify(users));
         renderUsers();
-    
+
         // ✅ تنظيف الحقول بعد الحفظ
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("user-modal").style.display = "none";
-    
+
         // ✅ إظهار رسالة نجاح
         Swal.fire({
             icon: "success",
@@ -445,7 +445,7 @@ body {
             timer: 1500
         });
     });
-    
+
     // 🔎 البحث أثناء الكتابة
     document.getElementById("search-box").addEventListener("input", function () {
         const query = this.value.toLowerCase();
@@ -456,12 +456,12 @@ body {
         );
         renderUsers(filteredUsers);
     });
-    
+
     // ✅ تحميل البيانات عند فتح الصفحة
     document.addEventListener("DOMContentLoaded", renderUsers);
-    
+
     </script>
-    
+
 
 
 
