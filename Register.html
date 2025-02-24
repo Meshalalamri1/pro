@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>Register</title>
         <style>
             * {
@@ -129,17 +129,39 @@
 
             /* جعل التصميم متجاوب */
             @media (max-width: 768px) {
+                body {
+                    padding: 20px;
+                    height: auto;
+                    min-height: 100vh;
+                }
                 .container {
                     flex-direction: column;
+                    width: 100%;
+                    height: auto;
                 }
                 .left-section {
                     width: 100%;
-                    height: 40vh;
+                    height: 200px;
+                    min-height: auto;
                 }
                 .right-section {
                     width: 100%;
-                    height: 60vh;
-                    padding: 40px;
+                    height: auto;
+                    padding: 20px;
+                }
+                .input-group {
+                    margin-bottom: 15px;
+                }
+                .input-group input {
+                    padding: 15px;
+                    font-size: 16px;
+                }
+                .btn-register {
+                    padding: 15px;
+                    margin: 20px 0;
+                }
+                .extra-links {
+                    margin: 20px 0;
                 }
             }
         </style>
