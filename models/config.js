@@ -7,9 +7,6 @@ const db = new sqlite3.Database(path.join(__dirname, 'database.sqlite'), (err) =
     } else {
         console.log('Connected to SQLite database');
 
-        // Drop existing users table if exists
-        db.run("DROP TABLE IF EXISTS users");
-
         // Create new users table with all required fields
         db.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

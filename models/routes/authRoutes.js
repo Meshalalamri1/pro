@@ -1,5 +1,4 @@
-
-const express = require("express");
+const express = require('express');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const db = require("../config");
@@ -65,27 +64,37 @@ router.post("/login", async (req, res) => {
     }
 });
 
-// Get all users
-router.get("/users", async (req, res) => {
-    try {
-        db.all("SELECT id, name, email FROM users", [], (err, users) => {
+
+// حذف مستخدم
+router.delete('/users/:id', (req, res) => {
+    const userId = req.params.id;
+
+    // التحقق من وجود المستخدم أولاً
+    db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        // حذف المستخدم
+        db.run("DELETE FROM users WHERE id = ?", [userId], (err) => {
             if (err) {
-                return res.status(500).json({ message: "Server Error", error: err });
+                return res.status(500).json({ error: err.message });
             }
-            res.json(users);
+            res.json({ message: "User deleted successfully", deletedId: userId });
         });
-    } catch (error) {
-        res.status(500).json({ message: "Server Error", error });
-    }
+    });
 });
 
-// Get all users
-router.get("/users", (req, res) => {
-    db.all("SELECT * FROM users", [], (err, rows) => {
+// جلب جميع المستخدمين
+router.get('/users', (req, res) => {
+    db.all("SELECT * FROM users", [], (err, users) => {
         if (err) {
-            return res.status(500).json({ message: "Server Error", error: err });
+            return res.status(500).json({ error: err.message });
         }
-        res.json(rows);
+        res.json(users);
     });
 });
 
@@ -101,29 +110,6 @@ router.post("/users", (req, res) => {
             res.json({ id: this.lastID, name, email, status });
         }
     );
-});
-
-// Delete user
-router.delete("/users/:id", (req, res) => {
-    const userId = req.params.id;
-    
-    // First check if user exists
-    db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
-        if (err) {
-            return res.status(500).json({ message: "Server Error", error: err });
-        }
-        if (!user) {
-            return res.status(404).json({ message: "User not found" });
-        }
-        
-        // If user exists, delete them
-        db.run("DELETE FROM users WHERE id = ?", [userId], (err) => {
-            if (err) {
-                return res.status(500).json({ message: "Server Error", error: err });
-            }
-            res.json({ message: "User deleted successfully", id: userId });
-        });
-    });
 });
 
 module.exports = router;
